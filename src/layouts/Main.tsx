@@ -1,19 +1,23 @@
 import { Show } from "solid-js"
 import Home from "./Home"
-import Results from "./Results"
-import { searchResults, useSearch } from "../../hooks/useSearch"
+import SearchResults from "./SearchResults"
+import { useSearch } from "../../hooks/useSearch"
+import SearchWidget from "../components/SearchWidget"
 
-const Search = () => {
+const Main = () => {
+  
   const { collectSearch } = useSearch()
+
   return(
     <>
+      <SearchWidget />
       <Show when={!collectSearch()}>
         <Home />
       </Show>
       <Show when={collectSearch()}>
-        <Results />
+        <SearchResults />
       </Show>
     </>
   )
 }
-export default Search
+export default Main

@@ -1,7 +1,7 @@
 const Home = () => {
   return(
     <main class="w-screen h-screen grid place-items-center">
-      <h2 class="w-full p-6 text-4xl text-center md:w-1/2 md:text-5xl">Search and find where to stream any movie or tv show {import.meta.env.VITE_COUNTER}</h2>
+      <h2 class="w-full md:w-2/3 p-4 md:p-8 text-4xl sm:text-5xl md:text-6xl text-center text-dark3">Search and <span class="text-light1">find where to stream</span> any movie or tv show</h2>
     </main>
   )
 }

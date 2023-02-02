@@ -2,8 +2,8 @@ import { createSignal } from "solid-js"
 import { useSearchParams } from "@solidjs/router"
 
 export const [ searchResults, setSearchResults ] = createSignal<any>()
+export const [ isSearching, setIsSearching ] = createSignal<any>(false)
 export const [ currentQuery, setCurrentQuery ] = createSignal<any>()
-export const [ isMediaOpen, setIsMediaOpen ] = createSignal<boolean>(false)
 
 export const useSearch = () => {
 
@@ -13,8 +13,9 @@ export const useSearch = () => {
   const search = async(query: string, page: number) => {
 
     // set the search params to the current search
-    setSearchParams({ q: query });
+    setSearchParams({ q: query })
     setCurrentQuery(query)
+    setIsSearching(true)
 
     // set the actual search query
     const SEARCH_QUERY = `https://api.themoviedb.org/3/search/multi?api_key=${import.meta.env.VITE_TMDB_API_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`
@@ -40,6 +41,7 @@ export const useSearch = () => {
     setSearchParams({ id: null, type: null, q: null })
     setSearchResults()
     setCurrentQuery()
+    setIsSearching(false)
   }
 
   return { search, collectSearch, cancelSearch }

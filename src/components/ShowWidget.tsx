@@ -1,5 +1,5 @@
-import { Show, createEffect, createSignal } from "solid-js"
-import { useMedia, media, imdbId } from "../../hooks/useMedia"
+import { Show, createEffect } from "solid-js"
+import { useMedia, media } from "../../hooks/useMedia"
 import StreamingAvailability from "./StreamingAvailability"
 
 const ShowWidget = () => {

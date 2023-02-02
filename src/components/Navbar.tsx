@@ -1,16 +1,21 @@
-import SearchBar from "./SearchBar"
 import { useSearch } from "../../hooks/useSearch"
+import { FiSearch } from 'solid-icons/fi'
+import { AiOutlineMenu } from 'solid-icons/ai'
+import { setIsSearchWidgetOn } from "./SearchWidget"
 
 const Navbar = () => {
 
   const { cancelSearch } = useSearch()
 
   return(
-    <header class="bg-dark1 fixed top-0 left-0 w-screen p-6 flex flex-wrap gap-4 z-10">
-      <h1 class="inline place-self-center text-3xl w-full md:w-auto md:grow md:order-2 md:text-right">
-        <a onClick={() => cancelSearch()} class="cursor-pointer transition-all hover:text-dark3">.streamed</a>
+    <header class="fixed top-0 text-4xl p-4 md:p-8 flex w-full z-10">
+      <h1 class="grow">
+        <a onClick={() => cancelSearch()} class="cursor-pointer hover:opacity-50 transition-all">streamed</a>
       </h1>
-      <SearchBar class="grow-0 w-full md:w-auto" />
+      <nav class="flex gap-2 md:gap-4 place-items-center">
+        <FiSearch class="cursor-pointer hover:opacity-50 transition-all" onClick={() => setIsSearchWidgetOn(true)} />
+        {/* <AiOutlineMenu class="cursor-pointer hover:opacity-50 transition-all" /> */}
+      </nav>
     </header>
   )
 }
