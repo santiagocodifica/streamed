@@ -3,20 +3,16 @@ import { createEffect, Show, createSignal } from "solid-js"
 import { FiExternalLink } from 'solid-icons/fi'
 import { VsChromeClose } from 'solid-icons/vs'
 import { useSearchParams } from "@solidjs/router"
-// import { useStreamingAvailability } from "../../hooks/useStreamAvailability"
-// import { imdbId } from "../../hooks/useMedia"
 
 const MediaWidget = () => {
 
   const { collectMedia, closeMedia } = useMedia()
   const [ isExpanded, setIsExpanded ] = createSignal<boolean>(false)
   const [ searchParams ] = useSearchParams()
-  // const { checkStreamingAvailability, servicesList } = useStreamingAvailability()
 
   createEffect(() => {
     collectMedia()
     setIsExpanded(false)
-    // if(imdbId()){ checkStreamingAvailability(imdbId()) }
   })
 
   return(
@@ -27,7 +23,7 @@ const MediaWidget = () => {
           fixed md:static top-0 left-0 z-20
           bg-dark1 overflow-y-scroll
           md:mt-20 md:mb-20
-          w-screen md:w-[640px] min-h-screen md:h-fit md:min-h-0"
+          w-screen md:w-[640px] h-screen md:h-fit md:min-h-0"
         >
           {/* IMAGE */}
           <section class="relative overflow-hidden max-h-64">
